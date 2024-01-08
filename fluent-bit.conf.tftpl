@@ -1,0 +1,15 @@
+[INPUT]
+    Name        tail
+    Path        /var/log/syslog
+
+[OUTPUT]
+    Name               opensearch
+    Match              *
+    Host               ${fluentbit_opensearch}
+    Port               9200
+    Index              syslog
+    HTTP_User          admin
+    HTTP_Passwd        Test@123
+    Tls                On
+    Tls.verify         Off
+    Suppress_Type_Name On
